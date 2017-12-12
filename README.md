@@ -11,12 +11,21 @@ Implements (mostly) the same API interface on `window.analytics` as [Analytics.j
 
 ## Segment Write Keys
 In config.xml, you can put the following preferences:
-* \<preference name="analytics_write_key" value="{Segment write key}" />
-* \<preference name="analytics_debug_write_key" value="{Segment write key}" />
+```xml
+<platform name="android">
+	<preference name="analytics_write_key" value="{Segment android write key}" />
+ 	<preference name="analytics_debug_write_key" value="{Segment android debug write key}" />
+ </platform>
+ <platform name="ios">
+ 	<preference name="analytics_write_key" value="{Segment ios write key}" />
+ 	<preference name="analytics_debug_write_key" value="{Segment ios debug write key}" />
+</platform>
+```
+
 
 ## iOS Integrations Setup
 Use CocoaPods:
-The default plugin configuration does not bundle any Segment integrations or core analytics SDKs.
+The default plugin configuration builds the `analytics-core` SDK for iOS.
 To add more your custom integrations, create a `Podfile` file in your iOS platform root directory and add your segment integration dependencies. See the [iOS Quickstart][] for examples.
 
 ## Android Integrations Setup
